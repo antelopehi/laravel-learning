@@ -34,3 +34,5 @@
     router->web.php add
     Route::resource('billboard', 'BillBoardController');
 13.建立 還沒接資料的公告清單。
+14.建立 service 撈取資料。
+15.丟回畫面 串接資料。

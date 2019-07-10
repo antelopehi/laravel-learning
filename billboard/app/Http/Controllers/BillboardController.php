@@ -2,17 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\BillboardService;
 use Illuminate\Http\Request;
 
 class BillboardController extends Controller
 {
+
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = new BillboardService();
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('billboard.index');
+        //抓清單
+        $billboardList = $this->service->getBillboardList();
+        $data          = compact('billboardList');
+        return view('billboard.index', $data);
     }
 
     /**
