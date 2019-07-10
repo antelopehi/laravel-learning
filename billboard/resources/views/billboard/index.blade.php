@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>laravel練習(公告系統)</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-</head>
-<body>
+@extends('layout.master')
 
-<div class="container">
-    @if(!empty(session('msg')))
-        <div class="alert {{session('alertType')??'alert-secondary'}}" role="alert">
-            {{session('msg')??""}}
-        </div>
-    @endif
+@section('content')
     <h2>公告列表
         <a href="/billboard/create" class="btn btn-md btn-success pull-right">新增</a></h2>
     <p>顯示目前所有公告</p>
@@ -50,8 +34,4 @@
         @endforeach
         </tbody>
     </table>
-</div>
-<script>
-</script>
-</body>
-</html>
+@endsection
