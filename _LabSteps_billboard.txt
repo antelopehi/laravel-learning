@@ -33,3 +33,4 @@
     php artisan make:controller BillboardController -r
     router->web.php add
     Route::resource('billboard', 'BillBoardController');
+13.建立 還沒接資料的公告清單。

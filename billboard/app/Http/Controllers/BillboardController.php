@@ -12,7 +12,7 @@ class BillboardController extends Controller
      */
     public function index()
     {
-        return "show index";
+        return view('billboard.index');
     }
 
     /**
