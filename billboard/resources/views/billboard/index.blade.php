@@ -12,6 +12,11 @@
 <body>
 
 <div class="container">
+    @if(!empty(session('msg')))
+        <div class="alert {{session('alertType')??'alert-secondary'}}" role="alert">
+            {{session('msg')??""}}
+        </div>
+    @endif
     <h2>公告列表
         <a href="/billboard/create" class="btn btn-md btn-success pull-right">新增</a></h2>
     <p>顯示目前所有公告</p>

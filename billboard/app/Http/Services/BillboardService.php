@@ -3,6 +3,8 @@
 namespace App\Http\Services;
 
 use App\Http\Models\BillboardModel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BillboardService
 {
@@ -30,5 +32,33 @@ class BillboardService
             $billboardList[$key]['content'] = substr($billboard['content'], 0, 50) . "  ...以下省略";
         }
         return $billboardList;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return bool
+     */
+    public function delBillboardById(int $id)
+    {
+        $delRow = BillboardModel::where('id', $id)->delete();
+        if ($delRow) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 設定 alert 資訊
+     *
+     * @param Request $request
+     * @param string  $msg
+     * @param string  $alertType
+     */
+    public function setMsg(Request $request, string $msg, string $alertType = 'alert-secondary')
+    {
+        $request->session()->flash('msg', $msg);
+        $request->session()->flash('alertType', $alertType);
     }
 }

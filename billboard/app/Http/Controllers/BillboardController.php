@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\BillboardService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class BillboardController extends Controller
 {
@@ -90,12 +92,23 @@ class BillboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Request $request
+     * @param int     $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $isDel = $this->service->delBillboardById($id);
+        if ($isDel) {
+            $msg       = "成功";
+            $alertType = "alert-success";
+            $this->service->setMsg($request, $msg, $alertType);
+        } else {
+            $msg       = "刪除失敗";
+            $alertType = "alert-danger";
+            $this->service->setMsg($request, $msg, $alertType);
+        }
+        return redirect('/billboard');
     }
 }
