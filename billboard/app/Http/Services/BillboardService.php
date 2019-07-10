@@ -13,4 +13,22 @@ class BillboardService
     {
         return BillboardModel::get()->toArray();
     }
+
+    /**
+     * 格式化 公告for 公告清單
+     *
+     * @param $billboardList
+     *
+     * @return mixed
+     */
+    public function formatBillboardList($billboardList)
+    {
+        if (empty($billboardList)) {
+            return $billboardList;
+        }
+        foreach ($billboardList as $key => $billboard) {
+            $billboardList[$key]['content'] = substr($billboard['content'], 0, 50) . "  ...以下省略";
+        }
+        return $billboardList;
+    }
 }

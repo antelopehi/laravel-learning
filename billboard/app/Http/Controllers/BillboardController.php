@@ -23,6 +23,8 @@ class BillboardController extends Controller
     {
         //抓清單
         $billboardList = $this->service->getBillboardList();
+        //格式化內容
+        $billboardList = $this->service->formatBillboardList($billboardList);
         $data          = compact('billboardList');
         return view('billboard.index', $data);
     }

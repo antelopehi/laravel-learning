@@ -34,7 +34,7 @@
             <span class="pull-right">
                 <form method="post" action="/billboard/{{$billboard['id']}}">
                     <a href="/billboard/{{$billboard['id']}}/edit" class="btn btn-xs btn-info"><span
-                                class="glyphicon glyphicon-pencil"></span> 修改</a> |
+                                class="glyphicon glyphicon-pencil"></span> 查看</a> |
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span> 刪除</button>
