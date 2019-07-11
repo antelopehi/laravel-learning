@@ -73,12 +73,8 @@ class BillboardService
     public function createBillboard($title, $content)
     {
         $data = (compact('title', 'content'));
-        $id   = BillboardModel::insertGetId($data);
-        if ($id) {
-            return true;
-        } else {
-            return false;
-        }
+        BillboardModel::create($data);
+        return true;
 
     }
 
