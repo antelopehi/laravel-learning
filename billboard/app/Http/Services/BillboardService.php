@@ -81,4 +81,19 @@ class BillboardService
         }
 
     }
+
+    /**
+     * 將查詢資料送到 flash old
+     *
+     * @param $request
+     * @param $id
+     */
+    public function flashOldData($request, $id)
+    {
+        $billboard = BillboardModel::find($id)->toArray();
+        if (!empty($billboard)) {
+            $request->session()->put('_old_input.content', $billboard['content']);
+            $request->session()->put('_old_input.title', $billboard['title']);
+        }
+    }
 }

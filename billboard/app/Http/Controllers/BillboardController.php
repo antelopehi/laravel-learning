@@ -63,6 +63,7 @@ class BillboardController extends Controller
             $alertType = "alert-danger";
             $this->service->setMsg($request, $msg, $alertType);
         }
+        return redirect('/billboard');
     }
 
     /**
@@ -88,12 +89,13 @@ class BillboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $data = [
             'type' => 'update',
             'id'   => $id,
         ];
+        $this->service->flashOldData($request, $id);
         return view('billboard.create_or_update', $data);
     }
 

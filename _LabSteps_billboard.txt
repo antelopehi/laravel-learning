@@ -48,3 +48,7 @@
     protected $guarded = [];
     必須加在model model 會保護資料不被串改異動。有白名單黑名單。
     建議使用黑名單 $guarded 以防加欄位忘了改白名單程式出錯。
+24.顯示修改公告內容。
+   使用session old 存放顯示 資料。
+    $request->session()->put('_old_input.content', $billboard['content']);
+
