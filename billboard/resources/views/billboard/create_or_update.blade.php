@@ -7,7 +7,7 @@
           method="post">
         @else
             action="/billboard/{{$id}}"
-            method="put">
+            method="post">
             @method('put')
         @endif
 
@@ -32,9 +32,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="content">公告內文</label>
                 <div class="col-md-4">
-                    <textarea class="form-control" id="content" name="content">
-                        {{old('content')}}
-                    </textarea>
+                    <textarea class="form-control" id="content" name="content">{{old('content')??""}}</textarea>
                 </div>
             </div>
             <!-- Button (Double) -->

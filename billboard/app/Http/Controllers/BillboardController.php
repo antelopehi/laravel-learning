@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BillboardRequests\Create;
+use App\Http\Requests\BillboardRequests\Update;
 use App\Http\Services\BillboardService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -107,9 +108,19 @@ class BillboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Update $request, $id)
     {
-        //
+        $isUpdata = $this->service->updateBillboardById($id, $request->get('title'), $request->get('content'));
+        if ($isUpdata) {
+            $msg       = "修改成功";
+            $alertType = "alert-success";
+            $this->service->setMsg($request, $msg, $alertType);
+        } else {
+            $msg       = "修改失敗";
+            $alertType = "alert-danger";
+            $this->service->setMsg($request, $msg, $alertType);
+        }
+        return redirect('/billboard');
     }
 
     /**

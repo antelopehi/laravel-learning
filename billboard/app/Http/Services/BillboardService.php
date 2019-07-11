@@ -96,4 +96,14 @@ class BillboardService
             $request->session()->put('_old_input.title', $billboard['title']);
         }
     }
+
+    public function updateBillboardById(int $id, $title, $content)
+    {
+        $billboard          = BillboardModel::find($id);
+        $billboard->title   = $title;
+        $billboard->content = $content;
+        return $billboard->save();
+
+
+    }
 }

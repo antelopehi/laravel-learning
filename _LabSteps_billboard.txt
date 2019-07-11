@@ -51,4 +51,5 @@
 24.顯示修改公告內容。
    使用session old 存放顯示 資料。
     $request->session()->put('_old_input.content', $billboard['content']);
-
+25.建立更新 公告驗證器
+26.修改公告內容
