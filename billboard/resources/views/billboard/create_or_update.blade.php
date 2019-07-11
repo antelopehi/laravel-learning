@@ -22,8 +22,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">公告標題</label>
                 <div class="col-md-8">
-                    <input id="textinput" name="textinput" type="text"
-                           placeholder="輸入公告標題(不可超過100字元)"
+                    <input id="title" name="title" type="text"
+                           placeholder="輸入公告標題(不可超過10字元)"
                            value="{{old('title')}}"
                            class="form-control input-md">
                 </div>

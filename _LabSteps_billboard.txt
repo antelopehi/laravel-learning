@@ -40,3 +40,7 @@
 17.設定刪除動作。
 18.畫面顯示 alert 結果。
 19.拆出 layout
+20.建立 創建頁面
+21.修改 創建頁面共用 修改頁面
+22.建立 公告 create 驗證器
+    php artisan make:request /BillboardRequests/Create

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BillboardRequests\Create;
 use App\Http\Services\BillboardService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,7 @@ class BillboardController extends Controller
         $data = [
             'type' => 'create',
         ];
-        return view('billboard.create', $data);
+        return view('billboard.create_or_update', $data);
     }
 
     /**
@@ -50,9 +51,9 @@ class BillboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Create $request)
     {
-
+        dd($request->all());
     }
 
     /**

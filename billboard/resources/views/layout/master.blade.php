@@ -18,6 +18,12 @@
         <div class="alert {{session('alertType')??'alert-secondary'}}" role="alert">
             {{session('msg')??""}}
         </div>
+    @elseif($errors->count())
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger">
+                <b>錯誤輸入:</b> {{$error}}
+            </div>
+        @endforeach
     @endif
 
     @yield('content')
