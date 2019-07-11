@@ -92,8 +92,8 @@ class BillboardService
     {
         $billboard = BillboardModel::find($id)->toArray();
         if (!empty($billboard)) {
-            $request->session()->put('_old_input.content', $billboard['content']);
-            $request->session()->put('_old_input.title', $billboard['title']);
+            $request->session()->flash('_old_input.content', $billboard['content']);
+            $request->session()->flash('_old_input.title', $billboard['title']);
         }
     }
 
