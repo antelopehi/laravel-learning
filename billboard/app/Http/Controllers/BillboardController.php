@@ -37,7 +37,10 @@ class BillboardController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'type' => 'create',
+        ];
+        return view('billboard.create', $data);
     }
 
     /**
@@ -49,7 +52,7 @@ class BillboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -61,7 +64,11 @@ class BillboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'type' => 'update',
+            'id'   => $id,
+        ];
+        return view('billboard.create_or_update', $data);
     }
 
     /**
@@ -73,7 +80,11 @@ class BillboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'type' => 'update',
+            'id'   => $id,
+        ];
+        return view('billboard.create_or_update', $data);
     }
 
     /**
