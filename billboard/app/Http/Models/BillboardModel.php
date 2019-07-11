@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class BillboardModel extends Model
 {
     protected $table = "billboard";
+    protected $guarded = [];
 }

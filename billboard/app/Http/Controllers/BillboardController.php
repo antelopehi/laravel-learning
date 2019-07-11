@@ -53,7 +53,16 @@ class BillboardController extends Controller
      */
     public function store(Create $request)
     {
-        dd($request->all());
+        $isCreate = $this->service->createBillboard($request->get('title'), $request->get('content'));
+        if ($isCreate) {
+            $msg       = "新增成功";
+            $alertType = "alert-success";
+            $this->service->setMsg($request, $msg, $alertType);
+        } else {
+            $msg       = "新增失敗";
+            $alertType = "alert-danger";
+            $this->service->setMsg($request, $msg, $alertType);
+        }
     }
 
     /**

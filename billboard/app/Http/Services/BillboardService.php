@@ -61,4 +61,24 @@ class BillboardService
         $request->session()->flash('msg', $msg);
         $request->session()->flash('alertType', $alertType);
     }
+
+    /**
+     * 建立 公告
+     *
+     * @param $title
+     * @param $content
+     *
+     * @return bool
+     */
+    public function createBillboard($title, $content)
+    {
+        $data = (compact('title', 'content'));
+        $id   = BillboardModel::insertGetId($data);
+        if ($id) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

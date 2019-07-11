@@ -44,3 +44,7 @@
 21.修改 創建頁面共用 修改頁面
 22.建立 公告 create 驗證器
     php artisan make:request /BillboardRequests/Create
+23.model 新增資料方法。
+    protected $guarded = [];
+    必須加在model model 會保護資料不被串改異動。有白名單黑名單。
+    建議使用黑名單 $guarded 以防加欄位忘了改白名單程式出錯。
